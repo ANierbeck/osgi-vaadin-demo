@@ -4,6 +4,7 @@
 	<groupId>com.siemens.ct.pm</groupId>
 	<artifactId>model</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<name>Model</name>
 	<packaging>bundle</packaging>
 
 	<build>
@@ -23,5 +24,4 @@
 	</build>
 
 
-	<name>Model</name>
 </project>
