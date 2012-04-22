@@ -37,7 +37,6 @@
                 <configuration>
                     <instructions>
                         <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
-                        <Service-Component>OSGI-INF/vaadinMain.xml</Service-Component>
                     </instructions>
                 </configuration>
             </plugin>

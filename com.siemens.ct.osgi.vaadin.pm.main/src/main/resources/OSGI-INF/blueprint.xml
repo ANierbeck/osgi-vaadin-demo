@@ -1,0 +1,22 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+xsi:schemaLocation="
+http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+http://www.osgi.org/xmlns/blueprint-ext/v1.1.0 https://svn.apache.org/repos/asf/aries/tags/blueprint-0.3.1/blueprint-core/src/main/resources/org/apache/aries/blueprint/ext/blueprint-ext.xsd">
+
+    <bean id="main" class="com.siemens.ct.osgi.vaadin.pm.main.MainApplication"/>
+    
+    <service interface="com.siemens.ct.osgi.vaadin.pm.main.service.IViewContribution" ref="main" />
+    <service interface="com.siemens.ct.osgi.vaadin.pm.main.service.IActionContribution" ref="main" />
+
+    <reference-list interface="com.siemens.ct.osgi.vaadin.pm.main.service.IViewContribution">
+        <reference-listener bind-method="bindViewContribution" unbind-method="unbindViewContribution" ref="main"/>
+    </reference-list>
+
+    <reference-list interface="com.siemens.ct.osgi.vaadin.pm.main.service.IActionContribution">
+        <reference-listener bind-method="bindActionContribution" unbind-method="unbindActionContribution" ref="main"/>
+    </reference-list>
+
+
+</blueprint>
