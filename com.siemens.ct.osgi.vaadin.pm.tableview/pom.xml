@@ -19,6 +19,7 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin</artifactId>
             <version>6.7.7</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -32,17 +33,24 @@
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
             <version>${dependency.osgi.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.compendium</artifactId>
             <version>${dependency.osgi.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Internal dependencies -->
         <dependency>
             <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
             <artifactId>main</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.pm</groupId>
+            <artifactId>model</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

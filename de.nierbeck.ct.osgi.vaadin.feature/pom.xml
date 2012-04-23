@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>base</artifactId>
+        <groupId>com.siemens.ct</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>de.nierbeck</groupId>
+    <artifactId>de.nierbeck.ct.osgi.vaadin.feature</artifactId>
+    <packaging>pom</packaging>
+    <name>de.nierbeck.ct.osgi.vaadin.feature feature</name>
+    <description>Create a feature with the defined dependencies set.</description>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>main</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>bundleview</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>printaction</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>reindeeraction</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>runoaction</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>saveaction</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>tableview</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>theme</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
+            <artifactId>treeview</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.pm</groupId>
+            <artifactId>model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.siemens.ct.pm</groupId>
+            <artifactId>model.basic</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>2.2.6</version>
+                <executions>
+                    <execution>
+                        <id>generate-features-file</id>
+                        <goals>
+                            <goal>generate-features-file</goal>
+                        </goals>
+                        <configuration>
+                            <karafVersion>2.2.6</karafVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
