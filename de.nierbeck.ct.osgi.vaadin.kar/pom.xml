@@ -87,6 +87,7 @@
                             <goal>generate-features-file</goal>
                         </goals>
                         <configuration>
+                            <bundles>src/main/resources/bundles.properties</bundles>
                             <karafVersion>2.2.6</karafVersion>
                         </configuration>
                     </execution>
