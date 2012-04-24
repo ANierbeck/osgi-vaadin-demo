@@ -46,9 +46,9 @@ public class MainApplication extends Application {
 	private static final long serialVersionUID = 1L;
 	private final Logger logger = LoggerFactory.getLogger(MainApplication.class);
 
-	private final List<IViewContribution> viewContributions = Collections
+	private List<IViewContribution> viewContributions = Collections
 			.synchronizedList(new ArrayList<IViewContribution>());
-	private final List<IActionContribution> actionContributions = Collections
+	private List<IActionContribution> actionContributions = Collections
 			.synchronizedList(new ArrayList<IActionContribution>());
 	private final Map<IActionContribution, Button> buttonActionMap = Collections
 			.synchronizedMap(new HashMap<IActionContribution, Button>());
@@ -222,7 +222,7 @@ public class MainApplication extends Application {
 
 	public void bindViewContribution(IViewContribution viewContribution) {
 		logger.debug("bindViewContribution()");
-		viewContributions.add(viewContribution);
+//		viewContributions.add(viewContribution);
 		if (initialized) {
 			tabSheet.addTab(viewContribution.getView(this), viewContribution.getName(), new ThemeResource(
 					viewContribution.getIcon()));
@@ -231,7 +231,7 @@ public class MainApplication extends Application {
 
 	public void unbindViewContribution(IViewContribution viewContribution) {
 		logger.debug("unbindViewContribution()");
-		viewContributions.remove(viewContribution);
+//		viewContributions.remove(viewContribution);
 		if (initialized) {
 			tabSheet.removeComponent(viewContribution.getView(this));
 		}
@@ -242,7 +242,7 @@ public class MainApplication extends Application {
 		if (initialized) {
 			addActionContribution(actionContribution);
 		}
-		actionContributions.add(actionContribution);
+//		actionContributions.add(actionContribution);
 	}
 
 	private void addActionContribution(final IActionContribution actionContribution) {
@@ -281,7 +281,7 @@ public class MainApplication extends Application {
 		actionMenu.removeChild(menuItem);
 		menuActionMap.remove(actionContribution);
 
-		actionContributions.remove(actionContribution);
+//		actionContributions.remove(actionContribution);
 	}
 
 	@SuppressWarnings("serial")
@@ -308,6 +308,34 @@ public class MainApplication extends Application {
 			super(caption);
 			setStyleName(Reindeer.LABEL_SMALL);
 		}
+	}
+
+	/**
+	 * @return the viewContributions
+	 */
+	public List<IViewContribution> getViewContributions() {
+		return viewContributions;
+	}
+
+	/**
+	 * @param viewContributions the viewContributions to set
+	 */
+	public void setViewContributions(List<IViewContribution> viewContributions) {
+		this.viewContributions = viewContributions;
+	}
+
+	/**
+	 * @return the actionContributions
+	 */
+	public List<IActionContribution> getActionContributions() {
+		return actionContributions;
+	}
+
+	/**
+	 * @param actionContributions the actionContributions to set
+	 */
+	public void setActionContributions(List<IActionContribution> actionContributions) {
+		this.actionContributions = actionContributions;
 	}
 
 }

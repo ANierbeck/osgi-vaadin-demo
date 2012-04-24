@@ -5,23 +5,26 @@
 http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
 http://www.osgi.org/xmlns/blueprint-ext/v1.1.0 https://svn.apache.org/repos/asf/aries/tags/blueprint-0.3.1/blueprint-core/src/main/resources/org/apache/aries/blueprint/ext/blueprint-ext.xsd">
 
-    <bean id="main" class="com.siemens.ct.osgi.vaadin.pm.main.MainApplication" />
+    <bean id="main" class="com.siemens.ct.osgi.vaadin.pm.main.MainApplication">
+        <property name="viewContributions" ref="viewContributions"/>
+        <property name="actionContributions" ref="actionContributions" />
+    </bean>
 
-    <reference-list
+    <reference-list id="viewContributions"
         interface="com.siemens.ct.osgi.vaadin.pm.main.service.IViewContribution" activation="lazy">
         <reference-listener bind-method="bindViewContribution"
             unbind-method="unbindViewContribution" ref="main" />
     </reference-list>
 
-    <reference-list
+    <reference-list id="actionContributions"
         interface="com.siemens.ct.osgi.vaadin.pm.main.service.IActionContribution" activation="lazy">
         <reference-listener bind-method="bindActionContribution"
             unbind-method="unbindActionContribution" ref="main" />
     </reference-list>
 
-    <service interface="javax.servlet.Servlet" ref="main">
+    <service interface="com.vaadin.Application" ref="main">
         <service-properties>
-            <entry key="alias" value="/vaadin" />
+            <entry key="component.factory" value="com.vaadin.Application"/>
         </service-properties>
     </service>
 

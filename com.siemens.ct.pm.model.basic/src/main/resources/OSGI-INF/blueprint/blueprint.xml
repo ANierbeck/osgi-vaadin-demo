@@ -9,8 +9,8 @@ http://www.osgi.org/xmlns/blueprint-ext/v1.1.0 https://svn.apache.org/repos/asf/
     
     <service interface="com.siemens.ct.pm.model.IPersonManager" ref="manager" />
     
-    <reference interface="com.siemens.ct.pm.model.IPersonListener" activation="lazy">
-        <reference-listener ref="manager" bind-method="addPersonListener" unbind-method="removePersonListener"/>
-    </reference>
+<!--     <reference interface="com.siemens.ct.pm.model.IPersonListener" activation="lazy"> -->
+<!--         <reference-listener ref="manager" bind-method="addPersonListener" unbind-method="removePersonListener"/> -->
+<!--     </reference> -->
 
 </blueprint>
