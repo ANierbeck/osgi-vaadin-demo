@@ -52,5 +52,6 @@
     <module>com.siemens.ct.pm.model.basic</module>
     <module>com.siemens.ct.pm.model.minimal</module>
     <module>de.nierbeck.ct.osgi.vaadin.kar</module>
+    <module>vaadin.tracker</module>
   </modules>
 </project>

@@ -65,6 +65,10 @@ public class MainApplication extends Application {
 	private HorizontalLayout toolbar;
 
 	private MenuBar.MenuItem actionMenu;
+	
+	public MainApplication() {
+		super();
+	}
 
 	@Override
 	public void init() {

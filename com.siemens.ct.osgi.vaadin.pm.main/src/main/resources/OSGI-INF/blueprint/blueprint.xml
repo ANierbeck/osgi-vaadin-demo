@@ -22,10 +22,13 @@ http://www.osgi.org/xmlns/blueprint-ext/v1.1.0 https://svn.apache.org/repos/asf/
             unbind-method="unbindActionContribution" ref="main" />
     </reference-list>
 
-    <service interface="com.vaadin.Application" ref="main">
+    <service interface="de.nierbeck.ct.osgi.vaadin.tracker.service.VaadinAppHolder">
         <service-properties>
-            <entry key="component.factory" value="com.vaadin.Application"/>
+            <entry key="alias" value="/myvaadin"/>
         </service-properties>
+        <bean class="com.siemens.ct.osgi.vaadin.pm.main.VaadinAppHolderImpl">
+            <property name="application" ref="main"/>
+        </bean>
     </service>
-
+    
 </blueprint>

@@ -1,10 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.siemens.ct.osgi.vaadin.pm</groupId>
-    <artifactId>main</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <name>Vaadin OSGi Main</name>
+    <parent>
+        <artifactId>base</artifactId>
+        <groupId>com.siemens.ct</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <groupId>de.nierbeck</groupId>
+    <artifactId>vaadin.tracker</artifactId>
+    <name>Vaadin Application Tracker</name>
     <packaging>bundle</packaging>
 
 
@@ -50,10 +55,12 @@
             <version>2.5</version>
         </dependency>
         
+        <!-- pax-web-whiteboard  -->
         <dependency>
-            <groupId>de.nierbeck</groupId>
-            <artifactId>vaadin.tracker</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-extender-whiteboard</artifactId>
+            <version>1.0.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     
@@ -73,6 +80,6 @@
             </plugin>
         </plugins>
     </build>
-
-
+    
+    
 </project>
