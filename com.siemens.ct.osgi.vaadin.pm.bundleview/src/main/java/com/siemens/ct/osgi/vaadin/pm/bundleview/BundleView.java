@@ -12,7 +12,10 @@
 
 package com.siemens.ct.osgi.vaadin.pm.bundleview;
 
+import java.util.ArrayList;
+
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 
 import com.siemens.ct.osgi.vaadin.pm.main.service.IViewContribution;
@@ -32,6 +35,8 @@ public class BundleView implements IViewContribution {
 
 	private Component view;
 	private Table table;
+	private BundleContext bundleContext;
+	private Bundle[] bundles;
 
 	@Override
 	public String getIcon() {
@@ -41,6 +46,25 @@ public class BundleView implements IViewContribution {
 	@Override
 	public String getName() {
 		return "Bundle View";
+	}
+	
+	public void init() {
+		Bundle[] allBundles = bundleContext.getBundles();
+		ArrayList<Bundle> bundleList = new ArrayList<Bundle>();
+
+		// Hack for adding only our relevant bundles to the list
+		for (Bundle bundle : allBundles) {
+			String symbolicName = bundle.getSymbolicName();
+			if ((symbolicName.startsWith("com.siemens.ct.osgi.vaadin.pm") || symbolicName
+			      .startsWith("com.siemens.ct.pm.model."))
+			      && !((symbolicName.contains("main")
+			            || symbolicName.contains("theme")
+			            || symbolicName.contains("bundleview") || symbolicName
+			            .contains("logback")))) {
+				bundleList.add(bundle);
+			}
+		}
+		bundles = bundleList.toArray(new Bundle[] {});
 	}
 
 	@SuppressWarnings("serial")
@@ -84,7 +108,6 @@ public class BundleView implements IViewContribution {
 
 				@Override
 				public void buttonClick(ClickEvent event) {
-					Bundle[] bundles = Activator.getBundles();
 					for (Bundle bundle : bundles) {
 						try {
 							bundle.start();
@@ -103,7 +126,6 @@ public class BundleView implements IViewContribution {
 
 				@Override
 				public void buttonClick(ClickEvent event) {
-					Bundle[] bundles = Activator.getBundles();
 					for (Bundle bundle : bundles) {
 						try {
 							bundle.stop();
@@ -124,7 +146,6 @@ public class BundleView implements IViewContribution {
 	}
 
 	private void refreshTable() {
-		Bundle[] bundles = Activator.getBundles();
 		table.removeAllItems();
 
 		int i = 1;
@@ -176,5 +197,13 @@ public class BundleView implements IViewContribution {
 		default:
 			return "UNKNOWN";
 		}
+	}
+
+	public BundleContext getBundleContext() {
+		return bundleContext;
+	}
+
+	public void setBundleContext(BundleContext bundleContext) {
+		this.bundleContext = bundleContext;
 	}
 }

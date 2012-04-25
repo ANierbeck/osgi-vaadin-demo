@@ -1,12 +1,19 @@
 == Description ==         
 This demo shows how to create dynamic and modular web applications with server-side OSGi and Vaadin
+The original Version can be found here: http://www.toedter.com/blog/?p=412
+
+I modified it to be usable with Apache Karaf and Blueprint.
+To make it more easy it now is also build with maven. 
+
 
 == Setup ==
-Import all projects in Eclipse
-Open project com.siemens.ct.osgi.vaadin.target
-Open vaadin.target
-Set the target platform
-Run existing launch config: OSGi Vaadin Demo
+Run mvn clean install in the base directory
+grab the kar file from the de.nierbeck.ct.osgi.vaadin.kar/target directory
+put the kar file in your Apache Karaf deploy folder
+
+call http://localhost:8181/myvaadin 
+
+and be happy :)
 
 == License ==
 All Source Code Files are licensed with the Eclipse Public License - v 1.0
