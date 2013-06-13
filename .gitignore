@@ -1,7 +1,8 @@
-.settings
-target
+.settings/
+target/
 .project
 .classpath
 .gitignore~
 pom.xml~
 bin
+*.bak

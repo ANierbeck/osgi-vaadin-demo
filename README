@@ -11,6 +11,8 @@ Run mvn clean install in the base directory
 grab the kar file from the de.nierbeck.ct.osgi.vaadin.kar/target directory
 put the kar file in your Apache Karaf deploy folder
 
+feature:install http-whiteboard
+
 call http://localhost:8181/myvaadin 
 
 and be happy :)

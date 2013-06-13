@@ -278,6 +278,10 @@ public class MainApplication extends Application {
 	public void unbindActionContribution(IActionContribution actionContribution) {
 		logger.debug("unbindActionContribution()");
 		Button button = buttonActionMap.get(actionContribution);
+		
+		if(button == null)
+			return;
+		
 		toolbar.removeComponent(button);
 		buttonActionMap.remove(actionContribution);
 
